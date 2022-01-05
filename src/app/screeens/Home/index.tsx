@@ -48,6 +48,13 @@ const Home = () => {
         }
     }
 
+    const changeQue = () =>{
+        setinitque(filldata[queno + 1]._data);
+        setAnswers('')
+        setCorrect(false)
+        setCheck(false)
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.subView}>
@@ -71,7 +78,7 @@ const Home = () => {
                         if (answer && initque?.options.includes(i)) {
                             return (
                                 <View
-                                    style={styles.optionBtn}>
+                                    style={{...styles.optionBtn , marginHorizontal : 5}}>
                                     <Text style={styles.optionTxt}> {answer} </Text>
                                 </View>
                             )
@@ -81,7 +88,7 @@ const Home = () => {
                                 <Text
                                     key={index}
                                     style={[styles.text2, i == Object.values(initque?.answer)[0] ? styles.activetxt : null]}>
-                                    {i == Object.values(initque?.answer)[0] ? "          \t" : i + ' \t'}
+                                    {i == Object.values(initque?.answer)[0] ? "      \t" : i + ' \t'}
                                 </Text>
                             )
                         }
@@ -109,7 +116,7 @@ const Home = () => {
                         <Icon name={"flag"} size={15} color={'white'} />
                     </View>}
                     <TouchableOpacity
-                        onPress={() => { !checked ?  checkAnswer() : setinitque(queno + 1) }}
+                        onPress={() => { !checked ? checkAnswer() : changeQue() }}
                         style={[styles.continueBtn, !checked && answer ? { backgroundColor: "#01DFEA" } : checked && { backgroundColor: "white" }]}>
                         <Text style={[{ ...styles.text1, fontWeight: 'bold' }, checked ? correct ? { color: '#01DFEA' } : { color: '#FF7B88' } : null]} >
                             {answer && !checked ? 'CHECK ANSWER' : 'CONTINUE'}
