@@ -41,7 +41,6 @@ const Home = () => {
         setCheck(true)
         if (Object.values(initque?.answer)[0] == answer) {
             setCorrect(true);
-            console.log("fhfh");
         }
         else {
             setCorrect(false);
@@ -68,7 +67,7 @@ const Home = () => {
                             <Text
                                 key={index}
                                 style={[styles.text2, i == Object.keys(initque?.answer)[0] ? styles.activetxt : null]}>
-                                {i == Object.keys(initque?.answer)[0] ? i + '\t' : i + ' \t'}
+                                {i == Object.keys(initque?.answer)[0] ? i+"\t" : i + ' '}
                             </Text>
                         )
                     })}
@@ -78,8 +77,8 @@ const Home = () => {
                         if (answer && initque?.options.includes(i)) {
                             return (
                                 <View
-                                    style={{...styles.optionBtn , marginHorizontal : 5}}>
-                                    <Text style={styles.optionTxt}> {answer} </Text>
+                                    style={{...styles.optionBtn , marginLeft : 0 , marginHorizontal : 5}}>
+                                    <Text style={styles.optionTxt}> {answer } </Text>
                                 </View>
                             )
                         }
@@ -88,7 +87,7 @@ const Home = () => {
                                 <Text
                                     key={index}
                                     style={[styles.text2, i == Object.values(initque?.answer)[0] ? styles.activetxt : null]}>
-                                    {i == Object.values(initque?.answer)[0] ? "      \t" : i + ' \t'}
+                                    {i == Object.values(initque?.answer)[0] ? "      "+"\t\t" : i+" "}
                                 </Text>
                             )
                         }
